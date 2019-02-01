@@ -1,0 +1,68 @@
+<framework>
+    <pages>
+    
+		<!-- 프롬프트 응답이 있는 다큐먼트 - 프롬프트 선택 화면  path 제거 -->
+		<page desc="This page is used for answering prompts in the Mojo OIVM page" desc-id="" feature-id="" class="com.microstrategy.web.app.beans.RWPromptsPageComponent" login-required="true" name="prompts" useResourceMgr="on" persist-mode="8" title-bean="rwb" track="true" isPrompt="true">
+			<templates>
+				<template XMLmerge_id="2" error-title-id="mstrWeb.921" iframe="false" allow-cancel="false" page-name="oivm" />
+				<template XMLmerge_id="3" error-title-id="mstrWeb.921" iframe="true" show-wait="false" status="com.microstrategy.web.beans.EnumRequestStatus.WebBeanRequestWaitingForUserInput">
+					<page-sections use-default="true">
+						<page-section file-name="/jsp/RW_Error.jsp" name="error" />
+						<page-section file-name="/jsp/RW_Content.jsp" name="content" />
+						<page-section file-name="/jsp/RW_Links.jsp" name="links" />
+						<page-section file-name="/jsp/RW_LeftToolbar.jsp" name="dockLeft" />
+						<page-section file-name="/plugins/HideDocumentPath/jsp/GUIComponent_Path.jsp" name="path" />
+					</page-sections>
+					<shortcut-list-set name="default">
+						<shortcut-list name="toolbar" use-default="true" />
+					</shortcut-list-set>
+					<web-components>
+						<web-component base-bean="rwframe.rwb" feature-id="" is-container="false" name="divTreeWait" style-name="HierarchicalTreeElements" style-type="catalog" />
+						<web-component base-bean="attFormsQual" feature-id="" is-container="false" name="attFormsQual" style-name="AttributeFormsQualificationStyle" style-type="catalog" />
+						<web-component base-bean="metricQualLevel" feature-id="" is-container="false" name="metricQualLevel" style-name="MetricQualLevelStyle" style-type="catalog" />
+						<web-component base-bean="elementPicker" feature-id="" is-container="false" name="elementPicker" style-name="ElementPickerStyle" style-type="catalog" />
+						<web-component base-bean="rwframe" feature-id="check-execute-mode" is-container="true" name="rw_view_area" style-name="RWFrameViewStyle" style-type="catalog" />
+						<web-component base-bean="rwframe" feature-id="check-design-mode" is-container="true" name="rw_design_area" style-name="RWFrameDesignStyle" style-type="catalog" />
+						<web-component base-bean="accordion" feature-id="" is-container="true" name="accordion" style-name="AccordionTabManagerStyle" style-type="catalog" />
+						<web-component name="pathBean" base-bean="pathBean" feature-id="" is-container="false" style-name="RWPromptsPathStyle" style-type="catalog" />
+					</web-components>
+				</template>
+			</templates>
+		</page>
+		
+		
+		<!-- 프롬프트 응답이 있는 다큐먼트 - 화면  path 제거 -->
+		<page desc="Optimized Interactive View Mode" desc-id="" feature-id="" class="com.microstrategy.web.app.beans.RWOIVMPageComponent" login-required="true" name="oivm" useResourceMgr="off" persist-mode="8" title-bean="rwb" track="true">
+			<templates>
+				<!-- Status == Successful... -->
+				<template XMLmerge_id="2" error-title-id="mstrWeb.921" iframe="false" allow-cancel="false" file-name="/jsp/Mojo_Template.jsp">
+					<page-sections use-default="false">
+						<page-section file-name="/jsp/OIVM_Header.jsp" name="header_mojo" />
+						<page-section file-name="/jsp/OIVM_Content_Mojo.jsp" name="content_mojo" />
+						<page-section file-name="/plugins/HideDocumentPath/jsp/OIVM_Content_Core.jsp" name="content_core" />
+					</page-sections>
+				</template>
+				<!-- Status == Prompts... -->
+				<template XMLmerge_id="3" error-title-id="mstrWeb.921" iframe="true" show-wait="false" status="com.microstrategy.web.beans.EnumRequestStatus.WebBeanRequestWaitingForUserInput" page-name="prompts" />
+			</templates>
+		</page>
+		
+		
+		<page desc="HTML5 VI Page" desc-id="mstrWeb.15259" feature-id="ive-execution" class="com.microstrategy.web.app.beans.RWOIVMPageComponent" login-required="true" name="Html5Vi" useResourceMgr="off" persist-mode="8" title-bean="rwb" track="true">
+			<templates>
+				<!-- Status == Successful... -->
+				<template XMLmerge_id="2" error-title-id="mstrWeb.921" iframe="false" allow-cancel="false" file-name="/jsp/Mojo_Template.jsp">
+					<page-sections use-default="false">
+						<page-section file-name="/jsp/HTML5VI_Header.jsp" name="header_mojo" />
+						<page-section file-name="/jsp/OIVM_Content_Mojo.jsp" name="content_mojo" />
+						<page-section file-name="/plugins/HideDocumentPath/jsp/HTML5VI_Content_Core.jsp" name="content_core" />
+					</page-sections>
+				</template>
+				<!-- Status == Prompts... -->
+				<template XMLmerge_id="3" error-title-id="mstrWeb.921" iframe="true" show-wait="false" status="com.microstrategy.web.beans.EnumRequestStatus.WebBeanRequestWaitingForUserInput" page-name="promptsHtml5Vi" />
+			</templates>
+		</page>
+		
+		
+    </pages>
+</framework>
