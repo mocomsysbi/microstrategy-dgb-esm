@@ -38,7 +38,7 @@ public class FolderTreeController {
 		String folderId = request.getParameter("folderId");
 		WebIServerSession iSession = (WebIServerSession)request.getSession().getAttribute("mstrISession");
 		ModelAndView mav = new ModelAndView(new MappingJacksonJsonView());
-		System.out.println("iSession  =" + iSession);
+		//System.out.println("iSession  =" + iSession);
 		
 		if(iSession == null) {
 			logger.debug("MSTR 세션이 없습니다.");

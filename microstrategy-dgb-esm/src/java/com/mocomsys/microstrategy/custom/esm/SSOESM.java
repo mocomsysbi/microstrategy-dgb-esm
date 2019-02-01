@@ -39,6 +39,10 @@ public class SSOESM extends AbstractExternalSecurity {
 		}
 	}
 	
+	public static Properties getproperties() throws WebObjectsException {
+		return prop;
+	}
+	
 	// MSTR 인증 필요 시 이 클래스에서 최초로 호출되는 메서드로 인증가능한지 여부를 고려하여 앞으로 호출될 메서드를 결정.
 	@Override
     public int handlesAuthenticationRequest(final RequestKeys reqKeys, final ContainerServices cntSvcs, final int reason) {
